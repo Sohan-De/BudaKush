@@ -36,3 +36,7 @@ next-env.d.ts
 # large media files
 public/video/version final .mp4
 *.mp4
+
+# local demo store (admin edits / demo orders)
+/data/store.json
+/data/*.tmp
