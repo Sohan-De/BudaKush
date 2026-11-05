@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture - BudaKush CBD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo-yellow {
+            color: #ffd700;
+        }
+        
+        .logo-white {
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .invoice-title {
+            font-size: 24px;
+            color: #2c5530;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 10px;
+        }
+        
+        .order-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .order-label {
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .items-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c5530;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #4a7c59;
+        }
+        
+        .item-name {
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .item-details {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .total-section {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: right;
+        }
+        
+        .total-amount {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .addresses-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .address-box {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .address-title {
+            font-weight: bold;
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+        
+        .address-content {
+            white-space: pre-line;
+            color: #666;
+        }
+        
+        .footer {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            margin-bottom: 5px;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .addresses-section {
+                flex-direction: column;
+            }
+            
+            .order-row {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-yellow">Buda</span><span class="logo-white">Kush</span>
+            </div>
+            <div class="subtitle">Votre Oasis de Bien-être</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <h1 class="invoice-title">Facture</h1>
+            
+            <!-- Order Information -->
+            <div class="order-info">
+                <div class="order-row">
+                    <span class="order-label">Numéro de commande:</span>
+                    <span>{{order_id}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Date de commande:</span>
+                    <span>{{order_date}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Client:</span>
+                    <span>{{customer_name}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Méthode de livraison:</span>
+                    <span>{{shipping_method}}</span>
+                </div>
+            </div>
+            
+            <!-- Items Section -->
+            <div class="items-section">
+                <h2 class="section-title">Articles commandés</h2>
+                <div style="white-space: pre-line; background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #4a7c59;">
+                    {{items_list}}
+                </div>
+            </div>
+            
+            <!-- Total Section -->
+            <div class="total-section">
+                <div class="total-amount">
+                    Total: {{total_amount}}€
+                </div>
+                <div style="font-size: 14px; opacity: 0.9;">
+                    Devise: {{currency}}
+                </div>
+            </div>
+            
+            <!-- Addresses Section -->
+            <div class="addresses-section">
+                <div class="address-box">
+                    <div class="address-title">Adresse de livraison</div>
+                    <div class="address-content">{{shipping_address}}</div>
+                </div>
+                <div class="address-box">
+                    <div class="address-title">Adresse de facturation</div>
+                    <div class="address-content">{{billing_address}}</div>
+                </div>
+            </div>
+            
+            <!-- Thank You Message -->
+            <div style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="color: #2c5530; margin-bottom: 10px;">Merci pour votre commande !</h3>
+                <p style="color: #666;">
+                    Votre commande a été confirmée et sera expédiée dans les plus brefs délais. 
+                    Vous recevrez un email de suivi dès que votre colis sera en route.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                <div class="contact-item">{{company_name}}</div>
+                <div class="contact-item">Email: {{company_email}}</div>
+                <div class="contact-item">Téléphone: {{company_phone}}</div>
+            </div>
+            <div style="border-top: 1px solid #4a7c59; padding-top: 15px; margin-top: 15px;">
+                <p style="font-size: 12px; opacity: 0.8;">
+                    Cet email a été envoyé automatiquement suite à votre commande. 
+                    Pour toute question, n'hésitez pas à nous contacter.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

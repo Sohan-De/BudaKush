@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de commande - BudaKush CBD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo-yellow {
+            color: #ffd700;
+        }
+        
+        .logo-white {
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .confirmation-title {
+            font-size: 24px;
+            color: #2c5530;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 10px;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .order-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .order-label {
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .items-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c5530;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .items-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #4a7c59;
+            white-space: pre-line;
+        }
+        
+        .total-section {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+        
+        .total-amount {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .shipping-info {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .shipping-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .shipping-address {
+            white-space: pre-line;
+            color: #666;
+        }
+        
+        .next-steps {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .next-steps-title {
+            font-weight: bold;
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+        
+        .step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .step:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            margin-bottom: 5px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #2c5530;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #ffed4e;
+        }
+        
+        @media (max-width: 600px) {
+            .order-row {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-yellow">Buda</span><span class="logo-white">Kush</span>
+            </div>
+            <div class="subtitle">Votre Oasis de Bien-être</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <h1 class="confirmation-title">Confirmation de commande</h1>
+            
+            <!-- Success Message -->
+            <div class="success-message">
+                <div class="success-icon">🎉</div>
+                <h2 style="margin-bottom: 10px;">Commande confirmée !</h2>
+                <p>
+                    Merci {{customer_name}} ! Votre commande a été reçue et confirmée. 
+                    Nous préparons votre colis avec soin.
+                </p>
+            </div>
+            
+            <!-- Order Information -->
+            <div class="order-info">
+                <div class="order-row">
+                    <span class="order-label">Numéro de commande:</span>
+                    <span>{{order_id}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Date de commande:</span>
+                    <span>{{order_date}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Méthode de livraison:</span>
+                    <span>{{shipping_method}}</span>
+                </div>
+            </div>
+            
+            <!-- Items Section -->
+            <div class="items-section">
+                <h2 class="section-title">Votre commande</h2>
+                <div class="items-list">
+                    {{items_list}}
+                </div>
+            </div>
+            
+            <!-- Total Section -->
+            <div class="total-section">
+                <div class="total-amount">
+                    Total: {{total_amount}}€
+                </div>
+                <div style="font-size: 14px; opacity: 0.9;">
+                    Devise: {{currency}}
+                </div>
+            </div>
+            
+            <!-- Shipping Information -->
+            <div class="shipping-info">
+                <div class="shipping-title">Adresse de livraison</div>
+                <div class="shipping-address">{{shipping_address}}</div>
+            </div>
+            
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <div class="next-steps-title">Prochaines étapes</div>
+                <div class="step">Nous préparons votre commande avec soin</div>
+                <div class="step">Vous recevrez un email de suivi dans 24-48h</div>
+                <div class="step">Votre colis sera expédié selon la méthode choisie</div>
+                <div class="step">Suivez votre livraison en temps réel</div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="https://junglecbd.com" class="cta-button">Visiter notre site</a>
+                <a href="mailto:{{company_email}}" class="cta-button">Nous contacter</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                <div class="contact-item">{{company_name}}</div>
+                <div class="contact-item">Email: {{company_email}}</div>
+                <div class="contact-item">Téléphone: {{company_phone}}</div>
+            </div>
+            <div style="border-top: 1px solid #4a7c59; padding-top: 15px; margin-top: 15px;">
+                <p style="font-size: 12px; opacity: 0.8;">
+                    Merci de votre confiance. Pour toute question concernant votre commande, 
+                    n'hésitez pas à nous contacter.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

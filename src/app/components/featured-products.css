@@ -1,0 +1,467 @@
+/* Featured Products Slider - Styles spécifiques */
+
+/* Reset all previous styles */
+.featured-product-container,
+.featured-product-card,
+.featured-product-link,
+.featured-product-image,
+.featured-product-info,
+.featured-product-title,
+.featured-product-description,
+.featured-product-price,
+.featured-add-to-cart-btn,
+.featured-product-price-container,
+.featured-product-price-original,
+.featured-product-price-discount,
+.featured-product-price-normal,
+.featured-product-rating,
+.featured-rating-count,
+.featured-product-out-of-stock-overlay,
+.featured-product-out-of-stock-text,
+.featured-disabled-btn {
+  all: initial !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Conteneur principal du slider */
+.slider-container {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Wrapper du slider - celui qui gère le défilement */
+.slider-wrapper {
+  display: flex !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+  cursor: grab !important;
+  scroll-behavior: smooth !important;
+  transition: scroll-behavior 0.5s ease !important;
+}
+
+/* Cacher la scrollbar */
+.slider-wrapper::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Style quand on est en train de glisser */
+.slider-wrapper.is-dragging {
+  cursor: grabbing !important;
+  scroll-behavior: auto !important;
+}
+
+/* Désactiver les liens pendant le glissement */
+.slider-wrapper.is-dragging .featured-product-link {
+  pointer-events: none !important;
+}
+
+/* Styles pour améliorer le défilement fluide */
+@media (pointer: fine) {
+  /* Styles pour les appareils avec pointeur précis (souris) */
+  .slider-wrapper {
+    cursor: grab !important;
+  }
+  
+  .slider-wrapper:active {
+    cursor: grabbing !important;
+  }
+}
+
+/* Empêcher le glisser-déposer des images */
+.featured-product-image img {
+  pointer-events: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Masquer la barre de défilement mais permettre le défilement */
+/* Pour Chrome, Safari et Opera */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: none !important;
+}
+
+/* Pour IE et Edge */
+* {
+  -ms-overflow-style: none !important;
+}
+
+/* Conteneur du produit */
+.featured-product-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 10px !important;
+}
+
+/* Premier élément sans padding gauche */
+.featured-product-container-first {
+  padding-left: 0 !important;
+}
+
+/* Product card - style beige élégant */
+.featured-product-card {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #f0e6d2 !important; /* Beige clair */
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  position: relative !important;
+  cursor: pointer !important;
+  max-width: 350px !important;
+  min-width: 350px !important; /* Largeur minimale fixe */
+  margin: 0 auto !important;
+}
+
+.featured-product-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Product link */
+.featured-product-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  pointer-events: auto !important; /* Activer les événements par défaut */
+}
+
+/* Product image container */
+.featured-product-image {
+  width: 100% !important;
+  height: 200px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.featured-product-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease !important;
+}
+
+.featured-product-card:hover .featured-product-image img {
+  transform: scale(1.05) !important;
+}
+
+/* Product tag */
+.featured-product-tag {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  background-color: #d4af37 !important; /* Or */
+  color: #0f4d1e !important; /* Vert foncé */
+  padding: 5px 12px !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+  z-index: 2 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Product info */
+.featured-product-info {
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #f0e6d2 !important; /* Beige clair */
+  color: #0f4d1e !important; /* Vert foncé */
+  flex: 1 !important;
+  border-top: 2px solid rgba(15, 77, 30, 0.1) !important;
+}
+
+/* Product title */
+.featured-product-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  margin: 0 0 10px 0 !important;
+  color: #0f4d1e !important; /* Vert foncé */
+  transition: color 0.2s ease !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.featured-product-card:hover .featured-product-title {
+  color: #d4af37 !important; /* Or au survol */
+}
+
+/* Product description */
+.featured-product-description {
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  margin: 0 0 15px 0 !important;
+  color: #333 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Product rating */
+.featured-product-rating {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 15px !important;
+  color: #d4af37 !important; /* Gold color for stars */
+  font-size: 0.9rem !important;
+}
+
+.featured-rating-count {
+  font-family: system-ui, sans-serif !important;
+  font-size: 0.75rem !important;
+  color: #666 !important;
+  margin-left: 5px !important;
+}
+
+/* Product price area */
+.featured-product-price {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: auto !important;
+}
+
+/* Price container for discounted prices */
+.featured-product-price-container {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Original price (for discounted items) */
+.featured-product-price-original {
+  color: #888 !important;
+  text-decoration: line-through !important;
+  font-size: 0.85rem !important;
+}
+
+/* Discounted price */
+.featured-product-price-discount {
+  color: #e74c3c !important; /* Rouge pour prix réduit */
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+}
+
+/* Normal price (non-discounted) */
+.featured-product-price-normal {
+  color: #0f4d1e !important; /* Vert foncé */
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+}
+
+/* Out of stock overlay */
+.featured-product-out-of-stock-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 2 !important;
+}
+
+.featured-product-out-of-stock-text {
+  color: white !important;
+  font-family: system-ui, sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  padding: 8px 16px !important;
+  border: 2px solid white !important;
+  border-radius: 4px !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Add to cart button */
+.featured-add-to-cart-btn {
+  background-color: var(--color-accent, #d4af37) !important;
+  color: var(--color-dark, #333) !important;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 8px 12px !important;
+  font-family: system-ui, sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  margin-left: auto !important;
+}
+
+/* Disabled button style */
+.featured-disabled-btn {
+  background-color: #999 !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+}
+
+.featured-disabled-btn:hover {
+  background-color: #999 !important;
+  transform: none !important;
+}
+
+.featured-add-to-cart-btn:hover {
+  background-color: var(--color-accent-dark, #c9a32b) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .slider-wrapper {
+    scroll-snap-type: none !important; /* Désactiver complètement le snap sur mobile */
+    -webkit-overflow-scrolling: auto !important; /* Utiliser le défilement standard */
+    scroll-behavior: auto !important; /* Désactiver le comportement de défilement fluide sur mobile */
+    transition: none !important; /* Désactiver les transitions sur mobile */
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+    overflow-x: auto !important;
+    /* Styles pour améliorer l'inertie */
+    -webkit-overflow-scrolling: touch !important; /* Réactiver pour l'inertie native */
+    overscroll-behavior-x: contain !important; /* Empêcher le défilement de la page */
+    touch-action: pan-x !important; /* Autoriser uniquement le défilement horizontal */
+  }
+  
+  /* Désactiver le snap sur les éléments individuels aussi */
+  .featured-product-container {
+    scroll-snap-align: none !important;
+  }
+  
+  .featured-product-card {
+    max-width: 220px !important;
+    min-width: 220px !important; /* Largeur minimale fixe pour mobile */
+  }
+  
+  .featured-product-image {
+    height: 160px !important;
+  }
+  
+  .featured-product-info {
+    padding: 15px !important;
+  }
+  
+  .featured-product-title {
+    font-size: 1rem !important;
+  }
+  
+  .featured-product-description {
+    font-size: 0.8rem !important;
+    -webkit-line-clamp: 2 !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .featured-add-to-cart-btn {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .featured-product-rating {
+    font-size: 0.8rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .featured-rating-count {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .featured-product-image {
+    height: 200px !important;
+  }
+  
+  .featured-product-card {
+    max-width: 320px !important;
+    min-width: 320px !important; /* Largeur minimale fixe pour tablette */
+  }
+}
+
+/* Pour les très petits écrans mobiles */
+@media (max-width: 374px) {
+  .featured-product-card {
+    max-width: 190px !important;
+    min-width: 190px !important; /* Largeur minimale fixe pour très petits écrans */
+  }
+  
+  .featured-product-image {
+    height: 140px !important;
+  }
+  
+  .featured-product-info {
+    padding: 12px !important;
+  }
+  
+  .featured-product-title {
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .featured-product-description {
+    font-size: 0.75rem !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .featured-add-to-cart-btn {
+    padding: 5px 10px !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .featured-product-rating {
+    font-size: 0.8rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .featured-rating-count {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Product card wrapper - remplace le lien */
+.featured-product-card-wrapper {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+/* Désactiver temporairement le clic pendant le glissement */
+.slider-wrapper.is-dragging .featured-product-card-wrapper {
+  pointer-events: none !important;
+  cursor: grabbing !important;
+} 

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle commande - BudaKush CBD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo-yellow {
+            color: #ffd700;
+        }
+        
+        .logo-white {
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .notification-title {
+            font-size: 24px;
+            color: #2c5530;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 10px;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            color: #856404;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .alert-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .order-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .order-label {
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .customer-info {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .customer-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .items-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c5530;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .items-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #4a7c59;
+            white-space: pre-line;
+        }
+        
+        .total-section {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+        
+        .total-amount {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .addresses-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .address-box {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .address-title {
+            font-weight: bold;
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+        
+        .address-content {
+            white-space: pre-line;
+            color: #666;
+        }
+        
+        .action-buttons {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .action-button {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #2c5530;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .action-button:hover {
+            background-color: #ffed4e;
+        }
+        
+        .footer {
+            background-color: #2c5530;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            margin-bottom: 5px;
+        }
+        
+        .priority-indicator {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .addresses-section {
+                flex-direction: column;
+            }
+            
+            .order-row {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-yellow">Buda</span><span class="logo-white">Kush</span>
+            </div>
+            <div class="subtitle">Administration - Nouvelle commande</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <h1 class="notification-title">
+                Nouvelle commande reçue
+                <span class="priority-indicator">URGENT</span>
+            </h1>
+            
+            <!-- Alert Banner -->
+            <div class="alert-banner">
+                <div class="alert-icon">🛒</div>
+                <h2 style="margin-bottom: 10px;">Action requise</h2>
+                <p>
+                    Une nouvelle commande a été passée et payée. 
+                    Veuillez traiter cette commande dans les plus brefs délais.
+                </p>
+            </div>
+            
+            <!-- Order Information -->
+            <div class="order-info">
+                <div class="order-row">
+                    <span class="order-label">Numéro de commande:</span>
+                    <span>{{order_id}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Date de commande:</span>
+                    <span>{{order_date}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Méthode de livraison:</span>
+                    <span>{{shipping_method}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Statut:</span>
+                    <span style="color: #28a745; font-weight: bold;">PAYÉ</span>
+                </div>
+            </div>
+            
+            <!-- Customer Information -->
+            <div class="customer-info">
+                <div class="customer-title">Informations client</div>
+                <div class="order-row">
+                    <span class="order-label">Nom:</span>
+                    <span>{{customer_name}}</span>
+                </div>
+                <div class="order-row">
+                    <span class="order-label">Email:</span>
+                    <span>{{customer_email}}</span>
+                </div>
+            </div>
+            
+            <!-- Items Section -->
+            <div class="items-section">
+                <h2 class="section-title">Articles commandés</h2>
+                <div class="items-list">
+                    {{items_list}}
+                </div>
+            </div>
+            
+            <!-- Total Section -->
+            <div class="total-section">
+                <div class="total-amount">
+                    Total: {{total_amount}}€
+                </div>
+                <div style="font-size: 14px; opacity: 0.9;">
+                    Devise: {{currency}}
+                </div>
+            </div>
+            
+            <!-- Addresses Section -->
+            <div class="addresses-section">
+                <div class="address-box">
+                    <div class="address-title">Adresse de livraison</div>
+                    <div class="address-content">{{shipping_address}}</div>
+                </div>
+                <div class="address-box">
+                    <div class="address-title">Adresse de facturation</div>
+                    <div class="address-content">{{billing_address}}</div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="https://junglecbd.com/admin" class="action-button">Accéder au dashboard</a>
+                <a href="mailto:{{customer_email}}" class="action-button">Contacter le client</a>
+            </div>
+            
+            <!-- Processing Instructions -->
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="color: #2c5530; margin-bottom: 15px;">Instructions de traitement</h3>
+                <ol style="color: #666; padding-left: 20px;">
+                    <li>Vérifier la disponibilité des articles</li>
+                    <li>Préparer la commande selon la méthode de livraison</li>
+                    <li>Mettre à jour le statut dans le dashboard</li>
+                    <li>Envoyer l'email de suivi au client</li>
+                    <li>Organiser l'expédition</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                <div class="contact-item">{{company_name}} - Administration</div>
+                <div class="contact-item">Email: {{company_email}}</div>
+            </div>
+            <div style="border-top: 1px solid #4a7c59; padding-top: 15px; margin-top: 15px;">
+                <p style="font-size: 12px; opacity: 0.8;">
+                    Cet email a été envoyé automatiquement suite à une nouvelle commande. 
+                    Veuillez traiter cette commande dans les plus brefs délais.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
