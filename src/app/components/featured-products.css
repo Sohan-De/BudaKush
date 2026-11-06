@@ -465,3 +465,9 @@
   pointer-events: none !important;
   cursor: grabbing !important;
 } 
+/* Mobile: espace entre le bouton "Voir tous nos produits" et la section suivante */
+@media (max-width: 768px) {
+  .featured-see-all-wrapper {
+    padding-bottom: 40px;
+  }
+}

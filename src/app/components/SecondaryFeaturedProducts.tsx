@@ -400,8 +400,8 @@ const SecondaryFeaturedProducts = () => {
               </div>
             </div>
           </div>
-          <div style={{ 
-            textAlign: 'center', 
+          <div className="featured-see-all-wrapper" style={{
+            textAlign: 'center',
             marginTop: '0px',
             display: 'flex',
             justifyContent: 'center',
