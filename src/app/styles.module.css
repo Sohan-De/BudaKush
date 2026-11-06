@@ -3445,7 +3445,7 @@
 
 @media (max-width: 768px) {
   .featuredCategories {
-    padding: 60px 30px;
+    padding: 60px 30px 0;
   }
   
   .categoryLarge {
@@ -3463,7 +3463,7 @@
 
 @media (max-width: 576px) {
   .featuredCategories {
-    padding: 40px 20px;
+    padding: 40px 20px 0;
   }
   
   .categoriesSmallContainer {
